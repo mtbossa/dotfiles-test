@@ -63,7 +63,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/oh-my-zsh-customization
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -91,30 +91,22 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+###### aliases ######
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
-alias pf="clear && sail test --filter"
-alias sud="sail up -d"
-alias cl="clear"
-alias sailrestart="sail down && sud"
-alias lzg="lazygit"
-alias dev="cd /mnt/Development"
-alias mubapi="dev && cd mub/api.mub.one"
-alias mubapp="dev && cd mub/app.mub.one"
-alias jogaiapi="dev && cd jogai/jogai-api"
-alias jogaibrowser="dev && cd jogai/jogai-browser"
-alias sailrestart="sail down && sud"
-alias mubdebug="com.google.Chrome --remote-debugging-port=37887 --user-data-dir=/home/mtbossa/.var/app/com.google.Chrome/config/google-chrome --no-first-run --disable-fre --no-default-browser-check --flag-switches-begin --flag-switches-end http://app.mub.localhost:4201"
+# From https://www.atlassian.com/git/tutorials/dotfiles
+alias config='/usr/bin/git --git-dir=/home/mtbossa/.cfg/ --work-tree=/home/mtbossa'
+###### end aliases ######
 
-# nvm
+###### nvm ######
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Automatically tries to load nvm version when changing directories
 # Place this after nvm initialization!
 autoload -U add-zsh-hook
@@ -136,8 +128,7 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+###### end nvm ######
 
+# starship prompt
 eval "$(starship init zsh)"
-alias config='/usr/bin/git --git-dir=/home/mtbossa/.cfg/ --work-tree=/home/mtbossa'
-
-ZSH_CUSTOM=$HOME/oh-my-zsh-customization
