@@ -139,3 +139,5 @@ load-nvmrc
 
 eval "$(starship init zsh)"
 alias config='/usr/bin/git --git-dir=/home/mtbossa/.cfg/ --work-tree=/home/mtbossa'
+
+ZSH_CUSTOM=$HOME/oh-my-zsh-customization
