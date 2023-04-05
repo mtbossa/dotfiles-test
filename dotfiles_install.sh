@@ -13,4 +13,4 @@ fi;
 config checkout
 config config status.showUntrackedFiles no
 
-rm 
+rm -rf $HOME/dotfiles_install.sh
