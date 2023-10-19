@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-export PATH="$PATH:$HOME/.local/bin:/usr/local/bin:/sbin"
+export PATH="$PATH:$HOME/.local/bin:/usr/local/bin:/sbin:$HOME/.yarn/bin:$HOME/bin"
+
+export ANDROID_HOME="$HOME/Android/Sdk"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
