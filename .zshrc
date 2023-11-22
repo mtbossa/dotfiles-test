@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-export PATH="$PATH:$HOME/.local/bin:/usr/local/bin:/sbin:$HOME/.yarn/bin:$HOME/bin"
-
 export ANDROID_HOME="$HOME/Android/Sdk"
 
 # Path to your oh-my-zsh installation.
@@ -8,6 +5,9 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # tdl Telegram account
 export TDL_NS=mtbossa
+
+# If you come from bash you might have to change your $PATH.
+export PATH="$PATH:$HOME/.local/bin:/usr/local/bin:/sbin:$HOME/.yarn/bin:$HOME/bin:$ANDROID_HOME/platform-tools"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -143,3 +143,11 @@ source <(tdl completion zsh)
 # starship prompt
 eval "$(starship init zsh)"
 
+
+# pnpm
+export PNPM_HOME="/home/mtbossa/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
