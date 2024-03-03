@@ -138,8 +138,6 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 ###### end nvm ######
 
-source <(tdl completion zsh)
-
 # starship prompt
 eval "$(starship init zsh)"
 
