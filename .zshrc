@@ -138,10 +138,6 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 ###### end nvm ######
 
-# starship prompt
-eval "$(starship init zsh)"
-
-
 # pnpm
 export PNPM_HOME="/home/mtbossa/.local/share/pnpm"
 case ":$PATH:" in
@@ -149,3 +145,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# starship prompt
+eval "$(starship init zsh)"
