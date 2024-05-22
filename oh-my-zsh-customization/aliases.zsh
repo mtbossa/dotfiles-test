@@ -1,13 +1,16 @@
 alias cl="clear"
 alias lzg="lazygit"
-alias sud="sail up -d"
+
 alias sail="[ -f sail ] && bash sail || bash vendor/bin/sail"
+alias s="sail"
+alias sud="sail up -d"
 alias sailrestart="sail down && sud"
 alias sa="sail artisan"
 alias pf="clear && sail test --filter"
 alias satp="sail artisan test --parallel"
 alias samfs="sail artisan migrate:fresh --seed" 
 alias sailrestart="sail down && sud"
-alias s="sail"
 alias sa="s artisan"
 alias sc="s composer"
+
+alias dcud="docker compose up -d"
