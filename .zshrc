@@ -75,7 +75,9 @@ ZSH_CUSTOM=$HOME/oh-my-zsh-customization
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose nvm)
+
+zstyle ':omz:plugins:nvm' autoload yes
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,41 +109,6 @@ source $ZSH/oh-my-zsh.sh
 alias config='/usr/bin/git --git-dir=/home/mtbossa/.cfg/ --work-tree=/home/mtbossa'
 ###### end aliases ######
 
-###### nvm ######
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-
-load-nvmrc() {
-  local nvmrc_path
-  nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version
-    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-###### end nvm ######
-
-# starship prompt
-eval "$(starship init zsh)"
-
-
 # pnpm
 export PNPM_HOME="/home/mtbossa/.local/share/pnpm"
 case ":$PATH:" in
@@ -150,5 +117,5 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-alias jogai="cd ~/Development/jogai"
-alias packiyo="cd ~/Development/packiyo/packiyo/docker"
+# starship prompt
+eval "$(starship init zsh)"
