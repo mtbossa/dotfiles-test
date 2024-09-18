@@ -1,9 +1,10 @@
-# dotfiles
+# dotfiles - Manual
 My dotfiles bare repo.
 
 * Based in the [Dotfiles: Best Way to Store in a Bare Git Repository](https://www.atlassian.com/git/tutorials/dotfiles) tutorial.
 
-## Installation
-Run `curl -Lks https://gist.githubusercontent.com/mtbossa/804de47dfaf7aa6284023a764f0b6a44/raw/f2e4ee9bfa4d3f31c2ee8ac3fd3bd23ab00dbccf/dotfiles-install.sh | /bin/bash` in *$HOME* path.
-
-> The original gist link is [here](https://gist.github.com/mtbossa/804de47dfaf7aa6284023a764f0b6a44#file-dotfiles-install-sh).
+## How to run using chezmoi
+```
+export GITHUB_USERNAME=logandonley
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+```
